@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Zyronator.Models
 {
-    public class RootObject
+    public class RootUserLists
     {
         public Pagination Pagination { get; set; }
         public List<List> Lists { get; set; }
@@ -22,6 +22,8 @@ namespace Zyronator.Models
     {
         public string Last { get; set; }
         public string Next { get; set; }
+        public string Prev { get; set; }
+        public string First { get; set; }
     }
 
     public class List
@@ -33,6 +35,16 @@ namespace Zyronator.Models
         public string Resource_Url { get; set; }
         public string Uri { get; set; }
         public int Id { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class DatabaseUserList
+    {
+        public int Id { get; set; }
+        public int DiscogsId { get; set; }
+        public string Name { get; set; }
+        public string ResourceUrl { get; set; }
+        public string Uri { get; set; }
         public string Description { get; set; }
     }
 }
