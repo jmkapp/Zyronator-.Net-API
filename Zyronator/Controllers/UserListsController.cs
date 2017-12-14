@@ -6,12 +6,33 @@ using System.Linq;
 using System.Web.Configuration;
 using System.Web.Http;
 using Zyronator.Models;
-using Zyronator.Services;
+using Zyronator.Repositories;
 
 namespace Zyronator.Controllers
 {
     public class UserListsController : ApiController
     {
+        private readonly IUserListsRepository _userListsRepository;
+
+        public UserListsController(IUserListsRepository userListsRepository)
+        {
+            _userListsRepository = userListsRepository;
+        }
+
+        [Route("")]
+        [HttpGet]
+        public IHttpActionResult Default()
+        {
+            string baseUrl = Url.Content("~/");
+
+            DefaultUrls defaultUrls = new DefaultUrls();
+            defaultUrls.DiscogsLists = baseUrl + "api/userLists/zyron";
+            defaultUrls.DatabaseLists = baseUrl + "api/userlists/zyron/database";
+            defaultUrls.Synchronize = baseUrl + "api/userlists/synchronize";
+
+            return Ok(defaultUrls);
+        }
+
         [Route("api/userlists/zyron")]
         [HttpGet]
         public IHttpActionResult GetAllUserLists()
@@ -82,9 +103,7 @@ namespace Zyronator.Controllers
         [HttpGet]
         public IHttpActionResult GetDatabaseUserLists()
         {
-            UserListsService service = new UserListsService();
-
-            IEnumerable<DatabaseUserList> databaseUserLists = service.GetUserLists();
+            IEnumerable<DatabaseUserList> databaseUserLists = _userListsRepository.GetUserLists();
 
             return Ok(databaseUserLists);
         }
@@ -95,13 +114,11 @@ namespace Zyronator.Controllers
         {
             List<List> userLists = GetUserLists();
 
-            UserListsService service = new UserListsService();
-
-            List<DatabaseUserList> databaseUserLists = service.GetUserLists();
+            List<DatabaseUserList> databaseUserLists = _userListsRepository.GetUserLists();
 
             var notInDatabase = userLists.Where(list1Item => !databaseUserLists.Any(list2Item => list2Item.DiscogsId == list1Item.Id));
 
-            service.Insert(notInDatabase);
+            _userListsRepository.Insert(notInDatabase);
 
             return Ok();
         }

@@ -5,9 +5,9 @@ using System.Transactions;
 using System.Web.Configuration;
 using Zyronator.Models;
 
-namespace Zyronator.Services
+namespace Zyronator.Repositories
 {
-    public class UserListsService
+    public class UserListsRepository : IUserListsRepository
     {
         public List<DatabaseUserList> GetUserLists()
         {
@@ -64,7 +64,7 @@ namespace Zyronator.Services
 
                     using (SqlCommand command = new SqlCommand(query, conn))
                     {
-                        foreach(List list in userLists)
+                        foreach (List list in userLists)
                         {
                             command.Parameters.AddWithValue("@DiscogsId", list.Id);
                             command.Parameters.AddWithValue("@ListName", list.Name);
