@@ -4,6 +4,7 @@ using System.Linq;
 using System.Transactions;
 using System.Web.Configuration;
 using Zyronator.Models;
+using ZyronatorShared.DiscogsApiModels;
 
 namespace Zyronator.Repositories
 {
@@ -68,7 +69,7 @@ namespace Zyronator.Repositories
                         {
                             command.Parameters.AddWithValue("@DiscogsId", list.Id);
                             command.Parameters.AddWithValue("@ListName", list.Name);
-                            command.Parameters.AddWithValue("@ResourceUrl", list.Resource_Url);
+                            command.Parameters.AddWithValue("@ResourceUrl", list.ResourceUrl);
                             command.Parameters.AddWithValue("@Uri", list.Uri);
                             command.Parameters.AddWithValue("@ListDescription", list.Description);
 

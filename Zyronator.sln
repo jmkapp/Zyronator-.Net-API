@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zyronator", "Zyronator\Zyronator.csproj", "{13DD978C-FE84-4018-8C4B-2FC9FE0BCD7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZyronatorTests", "ZyronatorTests\ZyronatorTests.csproj", "{4C0517E7-4C6C-471B-B278-792542F438AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZyronatorShared", "ZyronatorShared\ZyronatorShared.csproj", "{7738560F-33AA-481B-B9BF-0EBAE3A4225E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZyronatorSharedTests", "ZyronatorSharedTests\ZyronatorSharedTests.csproj", "{0F950F37-53E6-42FC-8B2E-02DF0732CAD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{13DD978C-FE84-4018-8C4B-2FC9FE0BCD7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13DD978C-FE84-4018-8C4B-2FC9FE0BCD7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13DD978C-FE84-4018-8C4B-2FC9FE0BCD7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4C0517E7-4C6C-471B-B278-792542F438AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C0517E7-4C6C-471B-B278-792542F438AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C0517E7-4C6C-471B-B278-792542F438AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C0517E7-4C6C-471B-B278-792542F438AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7738560F-33AA-481B-B9BF-0EBAE3A4225E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7738560F-33AA-481B-B9BF-0EBAE3A4225E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7738560F-33AA-481B-B9BF-0EBAE3A4225E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7738560F-33AA-481B-B9BF-0EBAE3A4225E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F950F37-53E6-42FC-8B2E-02DF0732CAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F950F37-53E6-42FC-8B2E-02DF0732CAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F950F37-53E6-42FC-8B2E-02DF0732CAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F950F37-53E6-42FC-8B2E-02DF0732CAD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

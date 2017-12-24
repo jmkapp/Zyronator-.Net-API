@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Zyronator.Models;
+using ZyronatorShared.DiscogsApiModels;
 
 namespace Zyronator.Repositories
 {
