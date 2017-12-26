@@ -1,3 +1,5 @@
+use ZyronatorDB
+
 drop table if exists dbo.DiscogsUserList
 drop table if exists dbo.ApplicationUser
 
