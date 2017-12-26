@@ -1,4 +1,12 @@
 drop table if exists dbo.DiscogsUserList
+drop table if exists dbo.ApplicationUser
+
+create table dbo.ApplicationUser
+(
+	UserId int not null identity(1, 1) primary key,
+	UserName varchar(MAX) not null,
+	UserPassword varchar(MAX) not null
+)
 
 create table dbo.DiscogsUserList
 (
