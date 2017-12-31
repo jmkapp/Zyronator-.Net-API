@@ -1,33 +1,54 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Headers;
 using System.Web.Http;
+using Zyronator.Attributes;
 using ZyronatorShared;
 using ZyronatorShared.DiscogsApiModels;
+using ZyronatorShared.TokenAuthorization;
 
 namespace Zyronator.Controllers
 {
+    [GeneralAuthorize]
     public class DiscogsUserListsController : ApiController
     {
-        private readonly ZyronatorRestClient _restClient;
+        private readonly IDiscogsApiAccess _apiAcccess;
 
-        public DiscogsUserListsController()
+        public DiscogsUserListsController(IDiscogsApiAccess apiAccess)
         {
-            _restClient = new ZyronatorRestClient();
+            _apiAcccess = apiAccess;
         }
 
         // GET api/<controller>
-        public IEnumerable<List> Get()
+        public IHttpActionResult Get()
         {
-            DiscogsUserListFetcher listsFetcher = new DiscogsUserListFetcher(_restClient);
+            //AuthenticationHeaderValue authorization;
 
-            return listsFetcher.GetUserLists();
+            //var user = this.User;
+
+            //try
+            //{
+            //    authorization = Request.Headers.Authorization;
+            //    var parameter = authorization.Parameter;
+            //}
+            //catch (NullReferenceException)
+            //{
+            //    return Unauthorized();
+            //}
+
+            //bool authorized = _authorizer.Authorize(new Guid(token));
+
+            //if (!authorized)
+            //    return Unauthorized();
+
+            return Ok(_apiAcccess.GetZyronDiscogsLists());
         }
 
         // GET api/<controller>/5
         public DiscogsUserListDetail Get(int id)
-        {
-            DiscogsListDetailFetcher detailsFetcher = new DiscogsListDetailFetcher(_restClient);
-
-            return detailsFetcher.Get(id);
+        { 
+            return _apiAcccess.GetDiscogsList(id);
         }
 
         // POST api/<controller>

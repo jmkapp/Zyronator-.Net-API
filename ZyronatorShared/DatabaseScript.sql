@@ -6,18 +6,18 @@ drop table if exists dbo.ApplicationUser
 create table dbo.ApplicationUser
 (
 	UserId int not null identity(1, 1) primary key,
-	UserName varchar(MAX) not null,
-	UserPassword varchar(MAX) not null
+	UserName varchar(32) not null unique,
+	UserPassword varchar(68) not null
 )
 
 create table dbo.DiscogsUserList
 (
 	ListId int not null identity(1, 1) primary key,
 	DiscogsId int unique not null,
-	ListName varchar(MAX) not null,
-	ResourceUrl varchar(MAX) not null,
-	Uri varchar(MAX) not null,
-	ListDescription varchar(MAX)
+	ListName varchar(300) not null,
+	ResourceUrl varchar(500) not null,
+	Uri varchar(500) not null,
+	ListDescription varchar(1000)
 )
 
 insert into dbo.DiscogsUserList
